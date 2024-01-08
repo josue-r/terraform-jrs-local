@@ -25,4 +25,3 @@ jobs:
       lastname: Zamora
     secrets:
       token: ${{ secrets.TOKEN }}
-

@@ -1,4 +1,4 @@
 module "repos" {
-  source                  = "./modules/repos"
-  repositories   = var.repositories
+  source       = "./modules/repos"
+  repositories = var.repositories
 }

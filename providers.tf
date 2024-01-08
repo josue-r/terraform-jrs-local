@@ -22,6 +22,7 @@ terraform {
 }
 
 provider "github" {
-  owner = "josue-r"
-  token = var.token
+  owner        = "josue-r"
+  token        = var.token
+  organization = "jrs-org"
 }
