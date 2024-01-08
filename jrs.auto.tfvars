@@ -4,14 +4,14 @@ repositories = [
     name            = "MS-Test10"
     type            = "ms"
     path            = "ms"
-    branch_pipeline = "main"
+    branch_pipeline = "master"
     default_branch  = "master"
   },
   {
     name            = "MS-Tes11"
     type            = "ms"
     path            = "ms"
-    branch_pipeline = "main"
+    branch_pipeline = "master"
     default_branch  = "master"
   },
   # {
