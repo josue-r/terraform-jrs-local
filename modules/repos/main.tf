@@ -91,22 +91,22 @@ resource "github_branch_default" "default" {
 # }
 
 
-# resource "github_repository_file" "pipeline_file" {
-#   count               = terraform.workspace != "dev" ? 0 : length(var.repositories)
-#   repository          = var.repositories[count.index].name
-#   branch              = "refs/heads/${var.repositories[count.index].branch_pipeline}"
-#   file                = ".github/workflows/github-pipelines.yml"
-#   content             = file("${path.cwd}/assets/github-pipelines.yml" ) #,{ type = var.repositories[count.index].type })
-#   commit_message      = "Añade o actualiza pipelines_file via terraform ***NO_CI***"
-#   overwrite_on_create = false
+resource "github_repository_file" "pipeline_file" {
+  count               = terraform.workspace != "dev" ? 0 : length(var.repositories)
+  repository          = var.repositories[count.index].name
+  branch              = "refs/heads/${var.repositories[count.index].branch_pipeline}"
+  file                = ".github/workflows/github-pipelines.yml"
+  content             = file("${path.cwd}/assets/github-pipelines.yml") #,{ type = var.repositories[count.index].type })
+  commit_message      = "Añade o actualiza pipelines_file via terraform ***NO_CI***"
+  overwrite_on_create = false
 
-#   lifecycle {
-#     ignore_changes = [
-#       file,
-#       commit_message
-#     ]
-#   }
-# }
+  lifecycle {
+    ignore_changes = [
+      file,
+      commit_message
+    ]
+  }
+}
 
 
 resource "github_repository_file" "pr_template" {
